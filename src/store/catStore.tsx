@@ -14,5 +14,5 @@ export const useCatStore = create( (set) => ({
     updateCate:(newCate : Array<any>) => set({ cate: newCate }),
     addCate: (newVal:string) => set((state:any) =>{
         return {cate: [...state.cate, newVal]}
-    })
+    }),
 }));

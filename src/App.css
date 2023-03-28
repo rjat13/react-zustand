@@ -37,3 +37,6 @@ input{
   margin-bottom: 15px;
   cursor: pointer;
 }
+.btn-icon{
+  margin-right: 5px;
+}

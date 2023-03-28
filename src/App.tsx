@@ -1,34 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCatStore } from './store/catStore';
 import './App.css';
-import { getCat } from './Api';
 import AddCategory from './AddCategory';
+import {FaPen, FaTrash} from 'react-icons/fa'
+import EditCategory from './EditCategory';
+
 
 function App() {
-
-  const { cate,  updateCate }: any = useCatStore()
+  const [editCat, setEditCat] = useState('');
+  const { cate,  updateCate, getCateApi }: any = useCatStore()
   useEffect(()=> {
-    GetAllCategory();
+    getCateApi()
   },[])
-
-  const GetAllCategory = async () => {
-    const initState = await getCat()
-    if(initState){ 
-      updateCate(initState);
-    }
-  }
 
   const handleRemoveCate = (rmItm:string) => {
     const result = cate.filter((itm: string) =>  itm !== rmItm)
     updateCate(result);
   }
 
-  const CatList = cate && cate.map((itm:any) => <li key={itm}>{itm}<div><button onClick={() => handleRemoveCate(itm)}>X</button></div></li>) 
+  const handleUpdateCate = (editId:string) => {
+    setEditCat(cate.indexOf(editId));
+    // console.log("edit cate", editId)
+  }
+
+  const CatList = cate && cate.map((itm:any) => <li key={itm}>{itm}
+                    <div>
+                      <button className='btn-icon' onClick={() => handleRemoveCate(itm)}><FaTrash /></button>
+                      <button className='btn-icon' onClick={() => handleUpdateCate(itm)}><FaPen /></button>
+                    </div>
+                </li>) 
 
   return (
     <div className="App">
       <h4>Zustand!</h4>
       <AddCategory />
+      {editCat && <EditCategory catIdex={editCat} setEditCat={setEditCat} /> }
       <ul>
         {CatList}
       </ul>

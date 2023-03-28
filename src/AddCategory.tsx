@@ -10,18 +10,26 @@ export default function AddCategory() {
     const handleAddCategory = () => {
         addCate(val)
         setVal('')
+        closeAddCategory()
     }
 
+    const closeAddCategory = () => {
+        setFrm(false);
+        setVal('')
+    }
 
     return (
         <div>
-            <button onClick={() => setFrm(!frm)}>Add Category</button>
+            <button onClick={() => setFrm(true)}>Add Category</button>
             <hr/>
             {frm && 
                 <><div className='add-cate'>
                     <label>Add Category</label>
                     <input type='text' value={val} onChange={(e) => setVal(e.target.value)} />
-                    <button className='btn' onClick={handleAddCategory}>Save</button>
+                    <div>
+                        <button className='btn' onClick={handleAddCategory}>Save</button>
+                        <button className='btn' onClick={closeAddCategory} style={{marginLeft:10}}>Cancel</button>
+                    </div>
                 </div>
                 <hr/></>
             }
