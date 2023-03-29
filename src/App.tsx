@@ -7,7 +7,7 @@ import EditCategory from './EditCategory';
 
 
 function App() {
-  const [editCat, setEditCat] = useState('');
+  const [editCat, setEditCat] = useState(-1);
   const { cate,  updateCate, getCateApi }: any = useCatStore()
   useEffect(()=> {
     getCateApi()
@@ -20,7 +20,6 @@ function App() {
 
   const handleUpdateCate = (editId:string) => {
     setEditCat(cate.indexOf(editId));
-    // console.log("edit cate", editId)
   }
 
   const CatList = cate && cate.map((itm:any) => <li key={itm}>{itm}
@@ -34,7 +33,7 @@ function App() {
     <div className="App">
       <h4>Zustand!</h4>
       <AddCategory />
-      {editCat && <EditCategory catIdex={editCat} setEditCat={setEditCat} /> }
+      {(editCat >= 0 )&& <EditCategory catIdex={editCat} setEditCat={setEditCat} /> }
       <ul>
         {CatList}
       </ul>

@@ -8,9 +8,9 @@ export default function EditCategory({catIdex, setEditCat}:any) {
     const handleEditCate = () => {
         const eCate = [...cate];
         eCate[catIdex] = val
-        console.log("update ", val)
+        // console.log("update ", val)
         updateCate(eCate);
-        setEditCat('')
+        setEditCat(-1)
         
     }
 
