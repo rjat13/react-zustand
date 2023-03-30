@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "Royal Science"
+    },
+    {
+      "id": 2,
+      "title": "Shoddy Ocean"
+    },
+    {
+      "id": 4,
+      "title": "Bumpy Contagion"
+    },
+    {
+      "title": "Thrifty Farming !!!!",
+      "id": 5
+    },
+    {
+      "title": "It's Time To Do!!",
+      "id": 6
+    },
+    {
+      "title": "UÜ why@@@",
+      "id": 8
+    },
+    {
+      "title": "Hello",
+      "id": 9
+    },
+    {
+      "title": "blah blah",
+      "id": 10
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

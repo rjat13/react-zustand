@@ -8,6 +8,7 @@ export default function AddCategory() {
     const {addCate}:any = useCatStore()
 
     const handleAddCategory = () => {
+        if(!val) return;
         addCate(val)
         setVal('')
         closeAddCategory()
